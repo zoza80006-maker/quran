@@ -1,0 +1,55 @@
+/* الحاوية الرئيسية للموقع */
+main, .container {
+    width: 100%;
+    max-width: 1200px; /* لا تتجاوز 1200px على الشاشات الكبيرة */
+    margin: 0 auto;
+    padding: 0 1rem; /* مسافة أمان من الأطراف للشاشات الصغيرة */
+}
+
+.surah-grid {
+    display: grid;
+    /* يتكيف التوزيع تلقائياً: الحد الأدنى للكارت 280px والحد الأقصى كسر متساوي */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+/* للشاشات التي يقل عرضها عن 768px (الهواتف والأجهزة اللوحية الصغيرة) */
+@media (max-width: 768px) {
+    /* تحويل القائمة العلوية لتصبح عمودية أو أصغر حكماً */
+    .header-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 0.4rem;
+    }
+
+    nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem; /* تصغير الخطوط قليلاً لتناسب الشاشة */
+    }
+
+    /* تعديل حجم نص القرآن في القارئ للهواتف */
+    .quran-text {
+        font-size: 1.4rem;
+        line-height: 2.2;
+    }
+
+    /* تعديل المشغل الصوتي السفلي ليبدو عمودياً أو منسقاً على الهواتف */
+    .audio-player-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+
+    .player-controls {
+        width: 100%;
+    }
+}
+
+.quran-calligraphy {
+    /* الحد الأدنى 1.5rem، الحجم المفصّل 4vw، والحد الأقصى 2.5rem */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
